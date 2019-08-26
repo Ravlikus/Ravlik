@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izh_04_Basic_Coding", "Izh_04_Basic_Coding\Izh_04_Basic_Coding.csproj", "{DCFD825F-2B29-4F05-B51D-A577556EA2C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksSolutions", "FindMaxTask\TasksSolutions.csproj", "{15B5F390-91E0-46C1-9B47-990FCEC0D616}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCFD825F-2B29-4F05-B51D-A577556EA2C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCFD825F-2B29-4F05-B51D-A577556EA2C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCFD825F-2B29-4F05-B51D-A577556EA2C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCFD825F-2B29-4F05-B51D-A577556EA2C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B5F390-91E0-46C1-9B47-990FCEC0D616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B5F390-91E0-46C1-9B47-990FCEC0D616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B5F390-91E0-46C1-9B47-990FCEC0D616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B5F390-91E0-46C1-9B47-990FCEC0D616}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5027E2E4-1FC7-4C79-BAAD-B02D0B112622}
+	EndGlobalSection
+EndGlobal
