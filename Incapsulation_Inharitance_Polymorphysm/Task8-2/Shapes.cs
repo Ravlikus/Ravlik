@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task8_2
 {
@@ -21,6 +17,15 @@ namespace Task8_2
         public virtual double Height { get; set; }
         public override double Area{ get => Width * Height; }
         public override double Perimeter { get => (Width + Height) * 2; }
+
+        public Rectangle(Point position, double width = 1, double height = 1, double angle = 0)
+        {
+            Angle = angle;
+            Width = width;
+            Height = height;
+            Position = position;
+        }
+
     }
 
     public class Square : Rectangle
@@ -33,6 +38,13 @@ namespace Task8_2
                 base.Width = value;
                 base.Height = value;
             }
+        }
+        
+        public Square(Point position, double width = 1, double angle = 0) : base(position, width, width, angle)
+        {
+            Angle = angle;
+            Width = width;
+            Position = position;
         }
 
         public override double Height
@@ -51,6 +63,12 @@ namespace Task8_2
         public double Radius;
         public override double Area => Math.PI * Radius * Radius;
         public override double Perimeter => 2 * Math.PI * Radius;
+
+        public Circle(Point position, double radius)
+        {
+            Position = position;
+            Radius = radius;
+        }
     }
 
     public class Triangle:Shape
@@ -62,14 +80,13 @@ namespace Task8_2
         public double ALenght { get { return a; } set { a = value; RecalculateShape(); } }
         public double BLenght { get { return b; } set { b = value; RecalculateShape(); } }
         public double CLenght { get; private set; }
+
         public double ABAngle { get { return abAng; } set { abAng = value; RecalculateShape(); } }
         public double BCAngle { get; private set; }
         public double ACAngle { get; private set; }
 
         public override double Area => Math.Sqrt(p * (p - ALenght) * (p - BLenght) * (p - CLenght));
-
         public override double Perimeter => ALenght + BLenght + CLenght;
-
         private double p => Perimeter / 2;
 
         public Triangle(double aLenght, double bLenght, double abAngle)
