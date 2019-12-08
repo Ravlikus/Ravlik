@@ -9,6 +9,9 @@ namespace Task6_2
 {
     public static class EuclidianGCDFinder // НОД 
     {
+        /// <summary>
+        /// Метод, замеряющий время работы метода FindGCD с задаными входными параметрами
+        /// </summary>
         public static TimeSpan GetGCDFindingTiming(int a, int b, params int[] values)
         {
             var timer = new Stopwatch();
@@ -17,7 +20,9 @@ namespace Task6_2
             timer.Stop();
             return timer.Elapsed;
         }
-
+        /// <summary>
+        /// Метод ищет НОД всех входящих чисел
+        /// </summary>
         public static int FindGCD(int a, int b,params int[]  values)
         {
             var result = FindGCD(a, b);
@@ -27,7 +32,9 @@ namespace Task6_2
             }
             return result;
         }
-
+        /// <summary>
+        /// Метод ищет НОД 2-х чисел
+        /// </summary>
         public static int FindGCD(int a, int b)
         {
             if (a == 0) return b;
@@ -43,6 +50,9 @@ namespace Task6_2
 
     public static class SteinGCDFinder
     {
+        /// <summary>
+        /// Метод, замеряющий время работы метода FindGCD с задаными входными параметрами
+        /// </summary>
         public static TimeSpan GetGCDFindingTiming(int a, int b, params int[] values)
         {
             var timer = new Stopwatch();
@@ -52,6 +62,9 @@ namespace Task6_2
             return timer.Elapsed;
         }
 
+        /// <summary>
+        /// Метод ищет НОД всех входящих чисел
+        /// </summary>
         public static int FindGCD(int a, int b, params int[] values)
         {
             var result = FindGCD(a, b);
@@ -62,6 +75,9 @@ namespace Task6_2
             return result;
         }
 
+        /// <summary>
+        /// Метод ищет НОД 2-х чисел
+        /// </summary>
         public static int FindGCD(int a, int b)
         {
             if (a == 0) return b;

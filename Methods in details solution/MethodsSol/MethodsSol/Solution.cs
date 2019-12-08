@@ -10,6 +10,9 @@ namespace MethodsSol
         private static int manticeLenght = 52;
         private static int expLenght = 11;
 
+        /// <summary>
+        /// Метод, позволяющий получить бинарное представление числа по стандарту IEEE754
+        /// </summary>
         public static string ToBinaryString(this Double value)
         {
             if (value == double.PositiveInfinity) return "Positive Infinity";
