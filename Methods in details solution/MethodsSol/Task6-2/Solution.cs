@@ -12,21 +12,21 @@ namespace Task6_2
         /// <summary>
         /// Метод, замеряющий время работы метода FindGCD с задаными входными параметрами
         /// </summary>
-        public static TimeSpan GetGCDFindingTiming(int a, int b, params int[] values)
+        public static TimeSpan GetGCDFindingTiming( params int[] values)
         {
             var timer = new Stopwatch();
             timer.Start();
-            var s = FindGCD(a, b, values);
+            var s = FindGCD( values);
             timer.Stop();
             return timer.Elapsed;
         }
         /// <summary>
         /// Метод ищет НОД всех входящих чисел
         /// </summary>
-        public static int FindGCD(int a, int b,params int[]  values)
+        public static int FindGCD(params int[]  values)
         {
-            var result = FindGCD(a, b);
-            for (int i = 0; i < values.Length; i++)
+            var result = FindGCD(values[0], values[1]);
+            for (int i = 2; i < values.Length; i++)
             {
                 result = FindGCD(result, values[i]);
             }
@@ -53,11 +53,11 @@ namespace Task6_2
         /// <summary>
         /// Метод, замеряющий время работы метода FindGCD с задаными входными параметрами
         /// </summary>
-        public static TimeSpan GetGCDFindingTiming(int a, int b, params int[] values)
+        public static TimeSpan GetGCDFindingTiming( params int[] values)
         {
             var timer = new Stopwatch();
             timer.Start();
-            var s = FindGCD(a, b, values);
+            var s = FindGCD(values);
             timer.Stop();
             return timer.Elapsed;
         }
@@ -65,10 +65,10 @@ namespace Task6_2
         /// <summary>
         /// Метод ищет НОД всех входящих чисел
         /// </summary>
-        public static int FindGCD(int a, int b, params int[] values)
+        public static int FindGCD(params int[] values)
         {
-            var result = FindGCD(a, b);
-            for (int i = 0; i < values.Length; i++)
+            var result = FindGCD(values[0],values[1]);
+            for (int i = 2; i < values.Length; i++)
             {
                 result = FindGCD(result, values[i]);
             }
