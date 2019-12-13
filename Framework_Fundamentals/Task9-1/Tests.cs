@@ -19,6 +19,7 @@ namespace Task9_1
             var phoneFormat = "pp(ppp)ppp-pppp";
             var outFormat = "Customer record: {n}, {p}, {r}";
             var s = jefrey.ToString(outFormat, phoneFormat, culture);
+            Assert.AreEqual("Customer record: Jefrey Richter, +1(234)567-8900, ¤1,000,000.00", s);
         }
     }
 }
