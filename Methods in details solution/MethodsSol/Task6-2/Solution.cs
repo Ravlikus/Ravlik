@@ -12,7 +12,7 @@ namespace Task6_2
         /// <summary>
         /// Метод, замеряющий время работы метода FindGCD с задаными входными параметрами
         /// </summary>
-        public static TimeSpan GetGCDFindingTiming( params int[] values)
+        public static TimeSpan GetGCDFindingTiming(params int[] values)
         {
             var timer = new Stopwatch();
             timer.Start();
@@ -53,7 +53,7 @@ namespace Task6_2
         /// <summary>
         /// Метод, замеряющий время работы метода FindGCD с задаными входными параметрами
         /// </summary>
-        public static TimeSpan GetGCDFindingTiming( params int[] values)
+        public static TimeSpan GetGCDFindingTiming(params int[] values)
         {
             var timer = new Stopwatch();
             timer.Start();

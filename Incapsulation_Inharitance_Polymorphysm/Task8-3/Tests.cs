@@ -33,5 +33,23 @@ namespace Task8_3
             poly3 = poly3 - poly1;
             Assert.AreEqual(true, poly2 == poly3);
         }
+
+        [TestCase]
+        public void Multiplying()
+        {
+            var poly1 = new Polynom(new[] { 1.0 });
+            var poly2 = new Polynom(new[] { 1.0});
+            Assert.AreEqual(true, poly1 * poly2==new Polynom(new[] { 0.0, 1.0 }));
+            poly2 = new Polynom(new[] { 2.0 , 1.0});
+            Assert.AreEqual(true, poly1 * poly2==new Polynom(new[] { 0.0, 2.0, 1.0 }));
+        }
+
+        [TestCase]
+        public void Dividing()
+        {
+            var poly1 = new Polynom(new[] { 0.0, 1, 1});
+            var poly2 = new Polynom(new[] { 1.0 });
+            Assert.AreEqual(true, poly1 / poly2 == new Polynom(new[] { 1.0, 1.0 , 0}));
+        }
     }
 }

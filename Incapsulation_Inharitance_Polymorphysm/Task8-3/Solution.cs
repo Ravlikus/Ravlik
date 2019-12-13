@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Task8_3
 {
@@ -6,7 +7,7 @@ namespace Task8_3
     {
         public double[] PolynomUnits;
 
-        public Polynom( params double[] values)
+        public Polynom(params double[] values)
         {
             PolynomUnits = new double[values.Length];
             for(int i = 0; i< values.Length; i++)
@@ -46,7 +47,7 @@ namespace Task8_3
         public static Polynom operator -(Polynom a, Polynom b)
         {
             Polynom result;
-            if (a.PolynomUnits.Length > b.PolynomUnits.Length)
+            if (a.PolynomUnits.Length >= b.PolynomUnits.Length)
             {
                 result = new Polynom(a.PolynomUnits);
                 for (int i = 0; i < b.PolynomUnits.Length; i++)
@@ -55,8 +56,40 @@ namespace Task8_3
             else
             {
                 result = new Polynom(b.PolynomUnits);
+                for (int i = 0; i < result.PolynomUnits.Length; i++)
+                    result.PolynomUnits[i] = -result.PolynomUnits[i];
                 for (int i = 0; i < a.PolynomUnits.Length; i++)
-                    result.PolynomUnits[i] -= a.PolynomUnits[i];
+                    result.PolynomUnits[i] += a.PolynomUnits[i];
+            }
+            return result;
+        }
+
+        public static Polynom operator *(Polynom a, Polynom b)
+        {
+            var result = new Polynom(new double[a.PolynomUnits.Length + b.PolynomUnits.Length]);
+            for(int i = 0; i < a.PolynomUnits.Length; i++)
+            {
+                for (int j = 0; j < b.PolynomUnits.Length; j++)
+                {
+                    result.PolynomUnits[i + j + 1] += (a.PolynomUnits[i])* (b.PolynomUnits[j]);
+                }
+            }
+
+            return result;
+        }
+
+        public static Polynom operator /(Polynom a, Polynom b)
+        {
+            var result = new Polynom();
+            var aLenght = a.PolynomUnits.Length;
+            result.PolynomUnits = new double[aLenght];
+            var delta = 1;
+            while(aLenght - b.PolynomUnits.Length + 1> delta)
+            {
+                result.PolynomUnits[aLenght - b.PolynomUnits.Length - delta] = 
+                    a.PolynomUnits[aLenght - delta] / b.PolynomUnits[b.PolynomUnits.Length - 1];
+                a = a - result * b;
+                delta++;
             }
             return result;
         }
