@@ -12,6 +12,7 @@ namespace Task11_1
         [TestCase(0, 0, 1, ExpectedResult = 1)]
         [TestCase(-4, 6, 8, ExpectedResult = 2)]
         [TestCase(15, 18, 10, 5, ExpectedResult = 1)]
+        [TestCase(516, 1002, 903, 240, 5904, 6010101, 882, 6873, 2001, 20001, 4010202, 666, ExpectedResult = 3)]
         public int EuclidianAlgSimpleTests(params int[] values)
         {
             return Solution.EuclidianGCDFinder.FindGSD(values);
@@ -24,6 +25,7 @@ namespace Task11_1
         [TestCase(0, 0, 1, ExpectedResult = 1)]
         [TestCase(-4, 6, 8, ExpectedResult = 2)]
         [TestCase(15, 18, 10, 5, ExpectedResult = 1)]
+        [TestCase(516, 1002, 903, 240, 5904, 6010101, 882, 6873, 2001, 20001, 4010202, 666, ExpectedResult = 3)]
         public int SteinsAlgSimpleTests(params int[] values)
         {
             return Solution.SteinGCDFinder.FindGSD(values);
