@@ -21,6 +21,7 @@ namespace Task6_2.Tests
             Assert.AreEqual(1, EuclidianGCDFinder.FindGCD(0, 0, 1));
             Assert.AreEqual(2, EuclidianGCDFinder.FindGCD(-4, 6, 8));
             Assert.AreEqual(1, EuclidianGCDFinder.FindGCD(15, 18, 10, 5));
+            Assert.AreEqual(3, EuclidianGCDFinder.FindGCD(516, 1002, 903, 240, 5904, 6010101, 882, 6873, 2001, 20001, 4010202, 666));
         }
 
         [TestMethod()]
@@ -33,6 +34,7 @@ namespace Task6_2.Tests
             Assert.AreEqual(1, SteinGCDFinder.FindGCD(0, 0, 1));
             Assert.AreEqual(2, SteinGCDFinder.FindGCD(-4, 6, 8));
             Assert.AreEqual(1, SteinGCDFinder.FindGCD(15, 18, 10, 5));
+            Assert.AreEqual(3, EuclidianGCDFinder.FindGCD(516, 1002, 903, 240, 5904, 6010101, 882, 6873, 2001, 20001, 4010202, 666));
         }
     }
 }

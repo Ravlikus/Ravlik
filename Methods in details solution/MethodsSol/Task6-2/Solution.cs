@@ -37,14 +37,18 @@ namespace Task6_2
         /// </summary>
         public static int FindGCD(int a, int b)
         {
-            if (a == 0) return b;
-            if (b == 0) return a;
-            a = Math.Abs(a);
-            b = Math.Abs(b);
-            if (a == b) return a;
-            var min = Math.Min(a, b);
-            var diff = Math.Abs(a - b);
-            return FindGCD(min, diff);
+            while (true)
+            {
+                if (a == 0) return b;
+                if (b == 0) return a;
+                a = Math.Abs(a);
+                b = Math.Abs(b);
+                if (a == b) return a;
+                var min = Math.Min(a, b);
+                var diff = Math.Abs(a - b);
+                a = min;
+                b = diff;
+            }
         }
     }
 
