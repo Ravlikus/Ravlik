@@ -6,7 +6,7 @@ namespace Task9_4
 {
     public class  Solution<X> where X : IComparable
     {
-        public static List<X> GetUniqueInOrder<T>(T data) where T : IEnumerable<X>
+        public static List<X> GetUniqueInOrder(IEnumerable<X> data)
         {
             var result = new List<X>();
             X cacheObj = data.First();
