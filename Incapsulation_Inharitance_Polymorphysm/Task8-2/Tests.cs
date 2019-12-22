@@ -16,5 +16,6 @@ namespace Task8_2
             Assert.AreEqual(3, triangle.CLenght, 0.0001);
             return true;
         }
+        
     }
 }

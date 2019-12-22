@@ -7,20 +7,21 @@ namespace Task8_2
         public Point Position;
         public abstract double Area { get; }
         public abstract double Perimeter { get; }
+        public abstract double Rotation { get; set; }
 
     }
 
     public class Rectangle : Shape
     {
-        public double Angle;
         public virtual double Width { get; set; }
         public virtual double Height { get; set; }
         public override double Area{ get => Width * Height; }
         public override double Perimeter { get => (Width + Height) * 2; }
+        public override double Rotation { get; set; }
 
-        public Rectangle(Point position, double width = 1, double height = 1, double angle = 0)
+        public Rectangle(Point position, double width = 1, double height = 1, double rotation = 0)
         {
-            Angle = angle;
+            Rotation = rotation;
             Width = width;
             Height = height;
             Position = position;
@@ -40,9 +41,9 @@ namespace Task8_2
             }
         }
         
-        public Square(Point position, double width = 1, double angle = 0) : base(position, width, width, angle)
+        public Square(Point position, double width = 1, double rotation = 0) : base(position, width, width, rotation)
         {
-            Angle = angle;
+            Rotation = rotation;
             Width = width;
             Position = position;
         }
@@ -63,6 +64,7 @@ namespace Task8_2
         public double Radius;
         public override double Area => Math.PI * Radius * Radius;
         public override double Perimeter => 2 * Math.PI * Radius;
+        public override double Rotation { get; set; }
 
         public Circle(Point position, double radius)
         {
@@ -76,6 +78,7 @@ namespace Task8_2
         private double a;
         private double b;
         private double abAng;
+        public override double Rotation { get; set; }
 
         public double ALenght { get { return a; } set { a = value; RecalculateShape(); } }
         public double BLenght { get { return b; } set { b = value; RecalculateShape(); } }
@@ -89,8 +92,11 @@ namespace Task8_2
         public override double Perimeter => ALenght + BLenght + CLenght;
         private double p => Perimeter / 2;
 
-        public Triangle(double aLenght, double bLenght, double abAngle)
+        public Triangle(double aLenght, double bLenght, double abAngle, double rotation = 0)
         {
+
+            if (abAngle > Math.PI ) throw new ArgumentException("angle need to be less then 180");
+            Rotation = rotation;
             a = aLenght;
             b = bLenght;
             abAng = abAngle;
