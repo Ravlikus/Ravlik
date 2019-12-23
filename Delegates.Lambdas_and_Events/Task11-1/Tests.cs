@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Linq;
+using NUnit.Framework;
 
 namespace Task11_1
 {
@@ -29,6 +31,42 @@ namespace Task11_1
         public int SteinsAlgSimpleTests(params int[] values)
         {
             return Solution.SteinGCDFinder.FindGSD(values);
+        }
+
+        // Тесты снизу очень медленные, на моей машине 100 итераций занимают около 1-2 минут
+
+        [TestCase]
+        public void EuclidianFunctionalTest()
+        {
+            var rnd = new Random();
+            for(int i = 0; i < 100; i++)
+            {
+                var inputs = new int[rnd.Next(2,10)];
+                var result = rnd.Next(1000);
+                for(int j = 0; j<inputs.Length; j++)
+                {
+                    inputs[j] = result * rnd.Next(int.MaxValue / result - 1);
+                }
+                try { Assert.AreEqual(0, Solution.EuclidianGCDFinder.FindGSD(inputs)%result); }
+                catch (Exception ex){ throw new Exception($"{ex.Message} result: {result}; inputs: {inputs.Select(x => x.ToString()).Aggregate((a, b) => $"{a} {b}")}"); }
+            }
+        }
+
+        [TestCase]
+        public void SteinsAlgFunctionalTest()
+        {
+            var rnd = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                var inputs = new int[rnd.Next(2, 10)];
+                var result = rnd.Next(1000);
+                for (int j = 0; j < inputs.Length; j++)
+                {
+                    inputs[j] = result * rnd.Next(int.MaxValue / result - 1);
+                }
+                try { Assert.AreEqual(0, Solution.SteinGCDFinder.FindGSD(inputs) % result); }
+                catch (Exception ex) { throw new Exception($"{ex.Message} result: {result}; inputs: {inputs.Select(x => x.ToString()).Aggregate((a, b) => $"{a} {b}")}"); }
+            }
         }
     }
 }
