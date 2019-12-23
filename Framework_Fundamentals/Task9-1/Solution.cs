@@ -18,6 +18,13 @@ namespace Task9_1
             return $"{Name}, {Revenue}, {PhoneNumber}";
         }
 
+        /// <summary>
+        /// Возвращает строку, сформированную по заданному формату
+        /// </summary>
+        /// <param name="outFormat"> Строка, определяющая порядок данных, и разделители между ними ("p,n:r" => "{PhoneNumber},{Name}:{Revenue}")</param>
+        /// <param name="numberFormat"> Строка, по которой будет сформирован номер ("nn(nnn)-nn-nn" => "12(345)-67-89")</param>
+        /// <param name="culture"> Формат вывода (по нему выводится Revenue)</param>
+        /// <returns></returns>
         public string ToString(string outFormat, string numberFormat, CultureInfo culture)
         {
             var lastCulture = CultureInfo.CurrentCulture;

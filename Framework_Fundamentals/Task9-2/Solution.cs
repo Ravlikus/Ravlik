@@ -6,6 +6,12 @@ namespace Task9_2
 {
     public class Solution
     {
+        /// <summary>
+        /// Вывести строку в формате TitleCAse
+        /// </summary>
+        /// <param name="exceptions"> Строка, содержащая слова, на которые не распространяются правила TitleCase через пробел</param>
+        /// <param name="text"> Строка, по отношению к которой применяется формат </param>
+        /// <returns></returns>
         public static string ToTitleCase(string exceptions, string text)
         {
             var splitedText = text.ToLower().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -22,9 +28,14 @@ namespace Task9_2
             return result.ToString();
         }
 
+         /// <summary>
+         /// Капитализация слова
+         /// </summary>
+         /// <param name="word"> Cлово, по отношению к которому применяется капитализация </param>
+         /// <returns></returns>
         public static string CapitilizeWord(string word)
         {
-            return char.ToUpper(word[0]) + word.Substring(1);
+            return char.ToUpper(word[0]) + word.Substring(1).ToLower();
         }
     }
 }

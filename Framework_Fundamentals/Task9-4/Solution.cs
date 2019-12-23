@@ -6,6 +6,11 @@ namespace Task9_4
 {
     public class  Solution<X> where X : IComparable
     {
+        /// <summary>
+        /// Возвращает коллекцию из уникальных в последовательности элементов
+        /// </summary>
+        /// <param name="data"> Последовательность элементов</param>
+        /// <returns></returns>
         public static List<X> GetUniqueInOrder(IEnumerable<X> data)
         {
             var result = new List<X>();

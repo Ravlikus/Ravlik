@@ -6,6 +6,12 @@ namespace Task9_3
 {
     public class Solution
     {
+        /// <summary>
+        /// Добавляет/изменяет параметры url
+        /// </summary>
+        /// <param name="url"> ссылка</param>
+        /// <param name="parameters"> параметры</param>
+        /// <returns></returns>
         public static string AddOrChangeURLParameters(string url, string parameters)
         {
             var haveSomeParams = url.Contains('?');
@@ -23,6 +29,11 @@ namespace Task9_3
             return $"{urlPart}{paramsPart}";
         }
 
+        /// <summary>
+        /// Возвращает строку параметров
+        /// </summary>
+        /// <param name="data"> словарь параметров</param>
+        /// <returns></returns>
         public static string ParamsToString(Dictionary<string,string> data)
         {
             var result = new StringBuilder();
@@ -36,6 +47,11 @@ namespace Task9_3
             return result.ToString();
         }
 
+        /// <summary>
+        /// Возвращает словарь параметров по строке параметров
+        /// </summary>
+        /// <param name="paramsStr"> строка параметров</param>
+        /// <returns></returns>
         public static Dictionary<string, string> ParseParams(string paramsStr)
         {
             var result = new Dictionary<string, string>();
