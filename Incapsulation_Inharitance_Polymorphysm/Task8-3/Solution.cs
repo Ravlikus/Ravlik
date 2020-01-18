@@ -12,11 +12,23 @@ namespace Task8_3
 
         public Polynom(params PolynomUnit[] units)
         {
+            var contained = new HashSet<int>();
+            foreach(var unit in units.Where(x=>x.Coefitient!=0))
+            {
+                if (contained.Contains(unit.Pow)) throw new ArgumentException("Some pows are duplicated in units");
+                else contained.Add(unit.Pow);
+            }
             PolynomUnits = units;
         }
 
         public Polynom(List<PolynomUnit> units)
         {
+            var contained = new HashSet<int>();
+            foreach (var unit in units.Where(x => x.Coefitient != 0))
+            {
+                if (contained.Contains(unit.Pow)) throw new ArgumentException("Some pows are duplicated in units");
+                else contained.Add(unit.Pow);
+            }
             PolynomUnits = units.ToArray();
         }
 
@@ -48,6 +60,30 @@ namespace Task8_3
         public override int GetHashCode()
         {
             return -119518562 + EqualityComparer<PolynomUnit[]>.Default.GetHashCode(PolynomUnits);
+        }
+
+        public override string ToString()
+        {
+            if (PolynomUnits.Length == 0) return "<empty>";
+            var result = new StringBuilder();
+            result.Append($"{PolynomUnits[0].Coefitient}x^{PolynomUnits[0].Pow}");
+            for (int i = 1; i < PolynomUnits.Length; i++)
+            {
+                if (PolynomUnits[i].Coefitient >= 0) result.Append($"+{PolynomUnits[i].Coefitient}x^{PolynomUnits[i].Pow}");
+                else result.Append($"{PolynomUnits[i].Coefitient}x^{PolynomUnits[i].Pow}");
+            }
+
+            return result.ToString();
+        }
+
+        private void DeleteZeroCoefUnits()
+        {
+            PolynomUnits = PolynomUnits.Where(x => x.Coefitient != 0).ToArray();
+        }
+
+        private void DeleteZeroCoefUnits(Polynom poly)
+        {
+            poly.PolynomUnits = poly.PolynomUnits.Where(x => x.Coefitient != 0).ToArray();
         }
 
         public static Polynom operator +(Polynom a, Polynom b)
@@ -144,21 +180,6 @@ namespace Task8_3
         {
             return !(a == b);
         }
-
-        public string ToString()
-        {
-            if (PolynomUnits.Length == 0) return "<empty>";
-            var result = new StringBuilder();
-            result.Append($"{PolynomUnits[0].Coefitient}x^{PolynomUnits[0].Pow}");
-            for(int i = 1; i<PolynomUnits.Length; i++)
-            {
-                if (PolynomUnits[i].Coefitient >= 0) result.Append($"+{PolynomUnits[i].Coefitient}x^{PolynomUnits[i].Pow}");
-                else result.Append($"{PolynomUnits[i].Coefitient}x^{PolynomUnits[i].Pow}");
-            }
-
-            return result.ToString();
-        }
-
     }
     public class PolynomUnit
     {
