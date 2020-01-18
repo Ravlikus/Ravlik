@@ -10,8 +10,8 @@ namespace Task12_1
     [TestFixture]
     public class Tests
     {
-        [TestCase]
-        public void BinarySearchFunctionalTest()
+        [TestCase(ExpectedResult = true)]
+        public bool BinarySearchFunctionalTest()
         {
             var rnd = new Random();
             var comparer = Comparer<int>.Create(new Comparison<int>((a, b) => a - b));
@@ -30,6 +30,8 @@ namespace Task12_1
                 input.Sort();
                 Assert.AreEqual(neededPosition, Solution.FindElement(input.ToArray(), neededValue, comparer));
             }
+
+            return true;
         }
     }
 }
