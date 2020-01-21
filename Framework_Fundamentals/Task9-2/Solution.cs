@@ -12,7 +12,7 @@ namespace Task9_2
         /// <param name="exceptions"> Строка, содержащая слова, на которые не распространяются правила TitleCase через пробел</param>
         /// <param name="text"> Строка, по отношению к которой применяется формат </param>
         /// <returns></returns>
-        public static string ToTitleCase(string exceptions, string text)
+        public static string ToTitleCase(string text, string exceptions = "a an the from")
         {
             var splitedText = text.ToLower().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (splitedText.Length == 0) return "";
