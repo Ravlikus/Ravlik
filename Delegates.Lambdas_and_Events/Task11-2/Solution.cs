@@ -5,16 +5,26 @@ namespace Task11_2
 {
     public class Solution
     {
-        private delegate RowData[] OrderCriterionMethodType(RowData[] data);
-        private delegate RowData[] SortCriterionMethodType(int[][] matrix);
-        public delegate int[][] MatrixSorter(int[][] matrix, SortByParam sortBy, OrderByParam orderBy);
+        public delegate int[][] MatrixSorter(int[][] matrix, SortByParam sortBy = SortByParam.BySum, OrderByParam orderBy = OrderByParam.Ascending);
         public static MatrixSorter SortMatrix = Sort;
+
+        private delegate RowData[] OrderCriterionMethodType(RowData[] data);
+        private delegate int SortCriterionMethodType(int[] matrix);
 
 
         private static int[][] Sort(int[][] matrix, SortByParam sortBy, OrderByParam orderBy)
         {
-            var resultRows = OrderMethods[orderBy](SortMethods[sortBy](matrix));
+            var unorderedRowsData = new RowData[matrix.Length];
+
+            for(int i = 0; i < unorderedRowsData.Length; i++)
+            {
+                unorderedRowsData[i] = new RowData(i, SortMethods[sortBy](matrix[i]));
+            }
+
+            var resultRows = OrderMethods[orderBy](unorderedRowsData);
+
             var result = new int[matrix.Length][];
+
             for (int i = 0; i < matrix.Length; i++)
             {
                 result[i] = matrix[resultRows[i].NumberByOrder];
@@ -34,48 +44,14 @@ namespace Task11_2
         private static Dictionary<SortByParam, SortCriterionMethodType> SortMethods =
             new Dictionary<SortByParam, SortCriterionMethodType>()
             {
-                { SortByParam.ByMaxValue, SortByMax },
-                { SortByParam.ByMinValue, SortByMin },
-                { SortByParam.BySum, SortBySum },
+                { SortByParam.ByMaxValue, Max },
+                { SortByParam.ByMinValue, Min },
+                { SortByParam.BySum, Sum },
             };
 
-        private static RowData[] SortByMax(int[][] matrix)
-        {
-            var matrixRowsData = new RowData[matrix.Length];
-            for (int i = 0; i < matrix.Length; i++)
-            {
-                var rowData = new RowData();
-                rowData.NumberByOrder = i;
-                rowData.SortValue = matrix[i].Max();
-                matrixRowsData[i] = rowData;
-            }
-            return matrixRowsData;
-        }
-
-        private static RowData[] SortByMin(int[][] matrix)
-        {
-            var matrixRowsData = new RowData[matrix.Length];
-            for (int i = 0; i < matrix.Length; i++)
-            {
-                var rowData = new RowData();
-                rowData.NumberByOrder = i;
-                rowData.SortValue = matrix[i].Min();
-                matrixRowsData[i] = rowData;
-            }
-            return matrixRowsData;
-        }
-        private static RowData[] SortBySum(int[][] matrix)
-        {
-            var matrixRowsData = new RowData[matrix.Length];
-            for (int i = 0; i < matrix.Length; i++)
-            {
-                var rowData = new RowData();
-                rowData.NumberByOrder = i;
-                rowData.SortValue = matrix[i].Sum();
-                matrixRowsData[i] = rowData;
-            }
-            return matrixRowsData;
-        }
+        private static int Max(int[] data) => data.Max();
+        private static int Min(int[] data) => data.Min();
+        private static int Sum(int[] data) => data.Sum();
 
         private static RowData[] OrderByAscending(RowData[] data)
         {
@@ -113,6 +89,12 @@ namespace Task11_2
 
         private class RowData
         {
+            public RowData(int num, int value)
+            {
+                NumberByOrder = num;
+                SortValue = value;
+            }
+
             public int NumberByOrder;
             public int SortValue;
         }

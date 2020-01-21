@@ -5,6 +5,7 @@ namespace Task11_3
 {
     public delegate void MessageDelegate(string message);
     public delegate void CounterDelegate(string message, int time);
+
     public class Countdown
     {
         public event MessageDelegate CountEndTrigger;
@@ -17,7 +18,7 @@ namespace Task11_3
         private void CountAndTrigger(string message, int time)
         {
             Thread.Sleep(time);
-            CountEndTrigger.Invoke(message);
+            CountEndTrigger?.Invoke(message);
         }
     }
 }
