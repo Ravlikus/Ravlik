@@ -14,7 +14,7 @@ namespace Task12_6
         public void Add(T value)
         {
             var s = new HashSet<int>();
-            var hash = value.GetHashCode() % HashArrayLenght;
+            var hash = GetHash(value);
             if (values[hash] == null)
             {
                 values[hash] = new HashArrayElement<T>(value);
@@ -40,7 +40,7 @@ namespace Task12_6
 
         public bool Contain(T value)
         {
-            var hash = value.GetHashCode() % HashArrayLenght;
+            var hash = GetHash(value);
             var current = values[hash];
             while(current!=null)
             {
@@ -61,11 +61,42 @@ namespace Task12_6
 
         public void Remove(T value)
         {
-            var hash = value.GetHashCode() % HashArrayLenght;
+            var hash = GetHash(value);
             var current = values[hash];
-            throw new NotImplementedException("Доделать");
+            if (current.Value.Equals(value))
+            {
+                current = current.SameHashNextValue;
+                values[hash] = current;
+            }
+            else
+            {
+                var parent = current;
+                current = current.SameHashNextValue;
+                var flag = false;
+                while(current!=null)
+                {
+                    if (current.Value.Equals(value))
+                    {
+                        parent.SameHashNextValue = current.SameHashNextValue;
+                        flag = true;
+                        break;
+                    }
+                    else
+                    {
+                        parent = current;
+                        current = current.SameHashNextValue;
+                    }
+                }
+
+                if (!flag) throw new ArgumentException("Value not found");
+            } 
         }
 
+
+        /// <summary>
+        /// Реализация IEnumerable
+        /// Значения возвращаются не в том порядке, в котором были добавлены
+        /// </summary>
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0, index = 0; i<Count;index++)
@@ -81,8 +112,13 @@ namespace Task12_6
             yield break;
         }
 
+        /// <summary>
+        /// Реализация IEnumerable
+        /// Значения возвращаются не в том порядке, в котором были добавлены
+        /// </summary>
         IEnumerator IEnumerable.GetEnumerator()
         {
+
             for (int i = 0, index = 0; i < Count; index++)
             {
                 var current = values[index];
@@ -95,6 +131,8 @@ namespace Task12_6
             }
             yield break;
         }
+
+        private int GetHash(T value) => Math.Abs(value.GetHashCode() % HashArrayLenght);
 
         class HashArrayElement<T>
         {
