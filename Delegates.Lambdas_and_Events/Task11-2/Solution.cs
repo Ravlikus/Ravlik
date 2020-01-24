@@ -5,7 +5,17 @@ namespace Task11_2
 {
     public class Solution
     {
+        /// <summary>
+        /// Метод сортировки матрицы
+        /// </summary>
+        /// <param name="matrix">Исходная матрица</param>
+        /// <param name="sortBy">Параметр типа сортировки</param>
+        /// <param name="orderBy">Параметр убывания/возрастания значений</param>
+        /// <returns>Отсортированная матрица</returns>
         public delegate int[][] MatrixSorter(int[][] matrix, SortByParam sortBy = SortByParam.BySum, OrderByParam orderBy = OrderByParam.Ascending);
+        /// <summary>
+        /// Метод сортировки матрицы
+        /// </summary>
         public static MatrixSorter SortMatrix = Sort;
 
         private delegate RowData[] OrderCriterionMethodType(RowData[] data);

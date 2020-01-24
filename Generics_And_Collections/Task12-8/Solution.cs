@@ -8,6 +8,11 @@ namespace Task12_8
 {
     public class Calculator
     {
+        /// <summary>
+        /// Посчитать значение выражения, записанного в обратной польской записи
+        /// </summary>
+        /// <param name="expression">выражение, записанное в обратной польской записи</param>
+        /// <returns>Значение выражения</returns>
         public static int Count(string expression)
         {
             var splitedExpression = expression.Split();

@@ -8,6 +8,14 @@ namespace Task12_1
 {
     class Solution
     {
+        /// <summary>
+        /// БИнарный поиск в коллекции
+        /// </summary>
+        /// <typeparam name="T">Тип элемента в коллекции</typeparam>
+        /// <param name="data">Коллекция</param>
+        /// <param name="neededElement">Искомый элемент</param>
+        /// <param name="comparer">Экземпляр класса сравнения</param>
+        /// <returns></returns>
         public static int FindElement<T>(T[] data, T neededElement, Comparer<T> comparer)
         {
             if (data[0].Equals(neededElement)) return 0;

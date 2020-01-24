@@ -8,6 +8,11 @@ namespace Task12_3
 {
     public class Solution
     {
+        /// <summary>
+        /// Сформировать коллекцию чисел фибоначи до исходного числа
+        /// </summary>
+        /// <param name="count">Исходное число</param>
+        /// <returns>Коллекция чисел фибоначи</returns>
         public static IEnumerable<int> GetFibbonacciNumbers(int count)
         {
             var N0 = 1;

@@ -32,7 +32,11 @@ namespace Task8_3
             PolynomUnits = units.ToArray();
         }
 
-
+        /// <summary>
+        /// Вычисляет значение полинома
+        /// </summary>
+        /// <param name="value">Исходное число</param>
+        /// <returns>Результат вычисления полинома от исходного числа</returns>
         public double CountResult(double value)
         {
             var result = 0.0;
@@ -43,6 +47,10 @@ namespace Task8_3
             return result;
         }
 
+        /// <summary>
+        /// Определить степень полинома
+        /// </summary>
+        /// <returns>Степень полинома</returns>
         public int GetMaxPow()
         {
             if (PolynomUnits.Where(x=>x.Coefitient!=0).Count() == 0) return -1;

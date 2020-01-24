@@ -10,6 +10,10 @@ namespace FindMaxTask
 {
     public static class MaxFinder
     {
+        /// <summary>
+        /// Возвращает максимальное значение в массиве
+        /// </summary>
+        /// <param name="array">Исходный массив</param>
         public static int FindMax(int[] array)
         {
             if (array == null)
@@ -37,6 +41,10 @@ namespace FindMaxTask
 
     public static class IBESFinder // IBES - Index Between Equals Sums (лучшее, что смог придумать вплане нейминга)
     {
+        /// <summary>
+        /// Возвращает индекс элемента массива, для которого сумма элементов справа равна сумме элементов слева
+        /// </summary>
+        /// <param name="array">Исходный массив</param>
         public static int? FindIEBS(double[] array)
         {
             if (array == null)
@@ -67,6 +75,11 @@ namespace FindMaxTask
 
     public static class Concatenator
     {
+        /// <summary>
+        /// Складывает строки, удаляя из второй строки символы, входящие в первую строку
+        /// </summary>
+        /// <param name="firstStr">Строка к которой будет применяться конкатенация</param>
+        /// <param name="secondStr">строка, которая будет конкатенироваться</param>
         public static string Concatenate(string firstStr, string secondStr)
         {
             if (firstStr == null || secondStr == null)
@@ -96,6 +109,10 @@ namespace FindMaxTask
 
     public static class NextBiggerFinder
     {
+        /// <summary>
+        /// Возвращает наименьшее число, больше исходного, состоящее из тех же цифр
+        /// </summary>
+        /// <param name="originValue">Исходное число</param>
         public static int? FindNextBigger(int originValue)
         {
             if (originValue<=0)
@@ -175,6 +192,11 @@ namespace FindMaxTask
 
     public static class DigitFilter
     {
+        /// <summary>
+        /// Исключет из массива все числа, в которых нет заданной цифры
+        /// </summary>
+        /// <param name="array">Исходный массив</param>
+        /// <param name="digit">Число, которое должно содержаться</param>
         public static int[] FilterByDigitContainment(int[] array, byte digit)
         {
             var result = new List<int>(array.Length);

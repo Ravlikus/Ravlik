@@ -5,13 +5,29 @@ namespace Task11_1
 {
     public class Solution
     {
+        /// <summary>
+        /// Тип метода, для нахождения НОД
+        /// </summary>
+        /// <param name="values">Исходные числа</param>
+        /// <returns>НОД для исходных чисел</returns>
         public delegate int GSDFinder(params int[] values);
+        /// <summary>
+        /// Метод, замеряющий время поиска НОД
+        /// </summary>
+        /// <param name="values">Исходные числа</param>
+        /// <returns>Время работы метода в милисекундах</returns>
         public delegate TimeSpan TimeChecker(params int[] values);
 
 
         public static class EuclidianGCDFinder // НОД 
         {
+            /// <summary>
+            /// Метод поиска НОД
+            /// </summary>
             public static GSDFinder FindGSD = GetGSDByValues;
+            /// <summary>
+            /// Метод, замеряющий время поиска НОД
+            /// </summary>
             public static TimeChecker GetGSDFindingTiming = GetTiming;
 
             /// <summary>
@@ -61,7 +77,13 @@ namespace Task11_1
 
         public static class SteinGCDFinder
         {
+            /// <summary>
+            /// Метод поиска НОД
+            /// </summary>
             public static GSDFinder FindGSD = GetGSDByValues;
+            /// <summary>
+            /// 
+            /// </summary>
             public static TimeChecker GetGSDFindingTiming = GetTiming;
 
             /// <summary>

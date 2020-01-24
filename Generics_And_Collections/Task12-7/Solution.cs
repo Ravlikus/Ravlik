@@ -74,7 +74,10 @@ namespace Task12_7
         private delegate IEnumerable<T> Transversing();
         private Transversing TransverceMethod;
 
-
+        /// <summary>
+        /// Добавление элемента в коллекцию
+        /// </summary>
+        /// <param name="value">Добавляемый элемент</param>
         public void Add(T value)
         {
             if (root == null) 
@@ -97,12 +100,20 @@ namespace Task12_7
             else root.Add(value);
         }
 
+        /// <summary>
+        /// Проверка коллекции на вхождение элемента
+        /// </summary>
+        /// <param name="value">Исходный элемент</param>
         public bool Contain(T value)
         {
             if (root == null) return false;
             else return root.Contain(value);
         }
 
+        /// <summary>
+        /// Удаление элемента из коллекции
+        /// </summary>
+        /// <param name="value">Удаляемый элемент</param>
         public void Remove(T value)
         {
             if (value.Equals(root.Value) && root.RightChildren == null && root.LeftChildren == null) root = null;

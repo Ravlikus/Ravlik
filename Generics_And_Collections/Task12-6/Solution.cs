@@ -11,6 +11,10 @@ namespace Task12_6
         private static int HashArrayLenght = 1000;
         private HashArrayElement<T>[] values = new HashArrayElement<T>[HashArrayLenght];
 
+        /// <summary>
+        /// Добавить элемент в коллекцию
+        /// </summary>
+        /// <param name="value">Добавляемый элемент</param>
         public void Add(T value)
         {
             var s = new HashSet<int>();
@@ -38,6 +42,10 @@ namespace Task12_6
             }
         }
 
+        /// <summary>
+        /// Проверить входит ли элемент в коллекцию
+        /// </summary>
+        /// <param name="value">Исходный элемент</param>
         public bool Contain(T value)
         {
             var hash = GetHash(value);
@@ -53,12 +61,19 @@ namespace Task12_6
             return false;
         }
 
+        /// <summary>
+        /// Очистить коллекцию
+        /// </summary>
         public void Clear()
         {
             values = new HashArrayElement<T>[HashArrayLenght];
             Count = 0;
         }
 
+        /// <summary>
+        /// Удалить элемент из коллекции
+        /// </summary>
+        /// <param name="value">Удаляемый элемент</param>
         public void Remove(T value)
         {
             var hash = GetHash(value);

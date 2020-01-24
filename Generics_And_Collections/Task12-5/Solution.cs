@@ -17,6 +17,10 @@ namespace Task12_5
 
             public Stack() { }
 
+            /// <summary>
+            /// Добавить элемент на верх стека
+            /// </summary>
+            /// <param name="element">Добавляемый элемент</param>
             public void Push(T element)
             {
                 if (count == 0)
@@ -36,6 +40,11 @@ namespace Task12_5
                 count++;
             }
 
+
+            /// <summary>
+            /// Вернуть верхний элемент и удалить его 
+            /// </summary>
+            /// <returns>Верхний элемент стека</returns>
             public T Pop()
             {
                 if (count == 0) throw new Exception("Stack is empty!");
@@ -57,6 +66,9 @@ namespace Task12_5
                 }
             }
 
+            /// <summary>
+            /// Очистить стек
+            /// </summary>
             public void Clear()
             {
                 var current = tail;

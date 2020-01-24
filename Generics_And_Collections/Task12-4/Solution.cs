@@ -17,6 +17,10 @@ namespace Task12_4
 
             public Queue(){}
 
+            /// <summary>
+            /// Добавление элемента в конец очереди
+            /// </summary>
+            /// <param name="element">Добавляемый элемент</param>
             public void Enqueue(T element)
             {
                 if (count == 0)
@@ -36,6 +40,10 @@ namespace Task12_4
                 count++;
             }
 
+            /// <summary>
+            /// Вернуть элемент в начале очереди и удалить его из неё
+            /// </summary>
+            /// <returns>Элемент в начале очереди</returns>
             public T Dequeue()
             {
                 if (count == 0) throw new Exception("Queue is empty!");
@@ -57,6 +65,9 @@ namespace Task12_4
                 }
             }
 
+            /// <summary>
+            /// Очистить очередь
+            /// </summary>
             public void Clear()
             {
                 var current = tail;
