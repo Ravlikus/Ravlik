@@ -28,7 +28,7 @@ namespace InroductionToLINQ
 
         public int CompareTo(object obj)
         {
-            return GetHashCode()*80 - obj.GetHashCode();
+            return GetHashCode() - obj.GetHashCode();
         }
 
         public override bool Equals(object obj)
@@ -62,29 +62,29 @@ namespace InroductionToLINQ
             var result = new StringBuilder();
             for (int i = 0; i < viewCriteria.Length; i++)
             {
-                switch (viewCriteria[i])
+                switch (viewCriteria.ToLower()[i])
                 {
-                    case 'I':
+                    case 'i':
                         {
                             result.Append(DataFormate(IDLenght, ID.ToString()));
                             break;
                         }
-                    case 'S':
+                    case 's':
                         {
                             result.Append(DataFormate(StudentNameLenght, StudentName));
                             break;
                         }
-                    case 'T':
+                    case 't':
                         {
                             result.Append(DataFormate(TestNameLenght, TestName));
                             break;
                         }
-                    case 'D':
+                    case 'd':
                         {
                             result.Append(DataFormate(dateLenght, Date.ToString("dd.MM.yyyy")));
                             break;
                         }
-                    case 'A':
+                    case 'a':
                         {
                             result.Append(DataFormate(assessmentLenght, Assessment.ToString()));
                             break;
@@ -124,6 +124,11 @@ namespace InroductionToLINQ
     {
         public BinaryTree<TestResult> results = new BinaryTree<TestResult>();
 
+        /// <summary>
+        /// Serialize class instance to a binary file
+        /// </summary>
+        /// <param name="results">class instance</param>
+        /// <param name="filePath">file path</param>
         public static void WriteResultsTo(TestResults results, string filePath)
         {
             var binaryFormatter = new BinaryFormatter();
@@ -134,6 +139,11 @@ namespace InroductionToLINQ
             }
         }
 
+        /// <summary>
+        /// deserialize class instence from .bin file
+        /// </summary>
+        /// <param name="filePath">file path</param>
+        /// <returns>class instance</returns>
         public static TestResults ReadResultsFrom(string filePath)
         {
             TestResults results;
@@ -157,29 +167,29 @@ namespace InroductionToLINQ
             var assessmentLenght = results.Select(x => x.Assessment.ToString().Length).Append("Assessment".Length).Max();
             for(int i = 0; i<viewCriteria.Length; i++)
             {
-                switch (viewCriteria[i])
+                switch (viewCriteria.ToLower()[i])
                 {
-                    case 'I':
+                    case 'i':
                         {
                             result.Append(TestResult.DataFormate(IDLenght, "ID"));
                             break;
                         }
-                    case 'S':
+                    case 's':
                         {
                             result.Append(TestResult.DataFormate(studentNameLenght, "Student"));
                             break;
                         }
-                    case 'T':
+                    case 't':
                         {
                             result.Append(TestResult.DataFormate(testNameLenght, "Test"));
                             break;
                         }
-                    case 'D':
+                    case 'd':
                         {
                             result.Append(TestResult.DataFormate(dateLenght, "Date"));
                             break;
                         }
-                    case 'A':
+                    case 'a':
                         {
                             result.Append(TestResult.DataFormate(assessmentLenght, "Assessment"));
                             break;

@@ -28,6 +28,10 @@ namespace InroductionToLINQ
         private static bool flag = false;
         private static Dictionary<string, Command> commands = new Dictionary<string, Command>();
 
+        /// <summary>
+        /// Invoke Execute() method of instance of command with same name from current assembly
+        /// </summary>
+        /// <param name="args">name and criteries of command(name is args[0])</param>
         public static void InvokeCommand(params string[] args)
         {
             if (args == null || args.Length == 0) throw new ArgumentException("Args cannot be null or empty");
@@ -41,6 +45,11 @@ namespace InroductionToLINQ
     {
         public delegate void Execute(params string[] args);
         public string Name;
+
+        /// <summary>
+        /// Command help
+        /// </summary>
+        /// <returns>text, that help to understanding how to use command</returns>
         public abstract string _Help();
         public Execute OnExecute;
 
@@ -50,6 +59,11 @@ namespace InroductionToLINQ
             OnExecute = ExecuteCommand;
         }
 
+
+        /// <summary>
+        /// Execute command
+        /// </summary>
+        /// <param name="args">criteries of command</param>
         public virtual void ExecuteCommand(params string[] args)
         {
 
@@ -186,7 +200,7 @@ namespace InroductionToLINQ
         {
             return "Show data from *.bin file.\nCriteries:\nr-root to *.bin file\n" +
                 "vc-view criteria (default \"I|S|T|D|A\" means format \"ID|Student|Test|Date|Assessment\")\n" +
-                "o-order criteria (if exist - order output by one of the params (i-id,s-student, etc.))\n" +
+                "o-order criteria (if exist - order output by one of the params (I-id,S-student, etc.))\n" +
                 "a-ascending param (if value is \"+\" order by ascending, if \"-\" - by descending)\n" +
                 "c-count criteria (show only [count] elements)";
         }
