@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InroductionToLINQ", "InroductionToLINQ\InroductionToLINQ.csproj", "{03BD1260-8A8B-4FBB-90CE-4C03DADFC5F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InroductionToLINQTests", "InroductionToLINQTests\InroductionToLINQTests.csproj", "{F321E662-7BEE-4F04-AF84-B726C359EBD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03BD1260-8A8B-4FBB-90CE-4C03DADFC5F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03BD1260-8A8B-4FBB-90CE-4C03DADFC5F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03BD1260-8A8B-4FBB-90CE-4C03DADFC5F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03BD1260-8A8B-4FBB-90CE-4C03DADFC5F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F321E662-7BEE-4F04-AF84-B726C359EBD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F321E662-7BEE-4F04-AF84-B726C359EBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F321E662-7BEE-4F04-AF84-B726C359EBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F321E662-7BEE-4F04-AF84-B726C359EBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0D6521B-61E7-41CD-86BC-D2D37DBBF8B2}
+	EndGlobalSection
+EndGlobal
